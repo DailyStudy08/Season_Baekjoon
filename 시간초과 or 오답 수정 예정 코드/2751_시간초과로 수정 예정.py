@@ -1,6 +1,12 @@
 N = int(input())
-a = []
-for i in range(N):
-    a += sys.
-for i in sorted(a):
-    print(i)
+num = []
+for _ in range(N):
+    num.append(int(input()))
+
+for i in range(N-1, 0, -1):
+    for j in range(0, i):
+        if num[j] > num[j + 1]:
+            num[j], num[j + 1] = num[j + 1], num[j]
+
+for k in num:
+    print(k)
