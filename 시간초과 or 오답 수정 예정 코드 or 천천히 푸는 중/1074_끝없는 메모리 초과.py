@@ -7,10 +7,14 @@ def number(a, b, N):
                 if i == r and j == c:
                     print(result)
                 result += 1
+
     else:
         for k in range(b, b + 2**N, 2**(N-1)):
             for l in range(a, a + 2**N, 2**(N-1)):
-                number(l, k, N-1)
+                if b <= r < b + 2 ** N and a <= c < a + 2 ** N:
+                    number(l, k, N-1)
+                else:
+                    result += (2 ** (N-1)) * (2 ** (N-1))
 
 
 N, r, c = map(int, input().split())
