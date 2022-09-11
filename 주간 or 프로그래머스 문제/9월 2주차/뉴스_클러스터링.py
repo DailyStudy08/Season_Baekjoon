@@ -1,10 +1,11 @@
 def solution(str1, str2):
-    str1.upper()
-    str2.upper()
+    str1 = str1.upper()
+    str2 = str2.upper()
     answer = 0
-    alpha = 'abcdefghijklnmopqrstuvwxyz'
+    alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     lst1 = []
     lst2 = []
+    check2 = []
     for i in range(1, len(str1)):
         a = str1[i-1] + str1[i]
         for j in a:
@@ -20,13 +21,20 @@ def solution(str1, str2):
                 break
         else:
             lst2.append(a)
+            check2.append(a)
 
-    num1 = num2 = 0
+    num1 = 0
     for i in range(len(lst1)):
-        for j in range(len(lst2)):
-            if lst1[i] == lst2[j]:
+        for j in range(len(check2)):
+            if lst1[i] == check2[j]:
                 num1 += 1
+                check2[j] = None
                 break
-        else:
-            num2 += 1
+
+    num2 = len(lst1) + len(lst2) - num1
+    if num2 == 0:
+        result = 1
+    else:
+        result = num1/num2
+    answer = int(result * 65536)
     return answer
