@@ -40,15 +40,11 @@ import sys
 input = sys.stdin.readline
 
 N, M, B = map(int, input().split())
-min_b = 257
-max_b = -1
-arr = [list(map(int, input().split())) for _ in range(N)]
-for i in range(N):
-    if min(arr[i]) < min_b:
-        min_b = min(arr[i])
-    if max(arr[i]) > max_b:
-        max_b = max(arr[i])
-
+arr = []
+for _ in range(N):
+    arr.extend(list(map(int, input().split())))
+min_b = min(arr)
+max_b = max(arr)
 go = 0
 height = 257
 time = 500*500*2*256
@@ -58,10 +54,10 @@ for i in range(min_b, max_b + 1):
     down = 0
     for j in range(N):
         for k in range(M):
-            if arr[j][k] > go:
-                down += arr[j][k] - go
-            elif arr[j][k] < go:
-                up += go - arr[j][k]
+            if arr[j * N + k] > go:
+                down += arr[j * N + k] - go
+            elif arr[j * N + k] < go:
+                up += go - arr[j * N + k]
     if down - up + B < 0:
         continue
     else:

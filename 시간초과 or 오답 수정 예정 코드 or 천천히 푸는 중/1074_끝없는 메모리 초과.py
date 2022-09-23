@@ -20,4 +20,5 @@ def number(a, b, N):
 N, r, c = map(int, input().split())
 arr = [[0] * 2 ** N for _ in range(2 ** N)]
 result = 0
+cnt = 0
 number(0, 0, N)
