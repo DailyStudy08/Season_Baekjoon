@@ -54,10 +54,11 @@ for i in range(min_b, max_b + 1):
     down = 0
     for j in range(N):
         for k in range(M):
-            if arr[j * N + k] > go:
-                down += arr[j * N + k] - go
-            elif arr[j * N + k] < go:
-                up += go - arr[j * N + k]
+            # print(j*M+k)
+            if arr[j * M + k] > go:
+                down += arr[j * M + k] - go
+            elif arr[j * M + k] < go:
+                up += go - arr[j * M + k]
     if down - up + B < 0:
         continue
     else:
