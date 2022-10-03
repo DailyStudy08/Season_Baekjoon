@@ -3,10 +3,10 @@ input = sys.stdin.readline
 
 
 def dijk(S, E):
-    visited = [0] * (N+1)
-    visited[S] = 1
     check_idx = S
-    while not visited[E]:
+    queue = []
+    queue.append(S)
+    while queue:
         min_idx = 0
         min_value = 100001
         for i in range(1, N+1):
